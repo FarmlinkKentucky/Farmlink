@@ -1,0 +1,81 @@
+{% extends "auctions/layout.html" %} {% block body %}
+
+<div class="wrapper">
+  <h1 class="faquestions" style="color: #365b6d">Frequently Asked Questions</h1>
+
+  <div class="faq">
+    <button class="accordion">What payment methods do you accept?</button>
+    <div class="pannel">
+      <p>
+        <br />
+        The only payment method we have for the time being is pay on-site.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="accordion">
+      What happens if I'm unable to pick up my order due to unforeseen
+      circumstances?
+    </button>
+    <div class="pannel">
+      <p>
+        <br />
+        If you find yourself unable to pick up your order due to unforeseen
+        circumstances, please notify the farm or our customer support team at
+        your earliest convenience. They will work with you to find a suitable
+        solution, whether it's rescheduling the pickup or discussing alternative
+        options.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <button class="accordion">
+      Can I bring my own bags or containers for pickup?
+    </button>
+    <div class="pannel">
+      <p>
+        <br />
+        Yes, we encourage customers to bring their own bags or containers for
+        packing their orders during pickup. This not only reduces waste but also
+        aligns with our commitment to sustainability and eco-friendly practices.
+      </p>
+    </div>
+  </div>
+  <div class="faq">
+    <button class="accordion">
+      Can I modify my pickup appointment after I've placed an order?
+    </button>
+    <div class="pannel">
+      <p>
+        <br />
+        If you need to make changes to your pickup appointment, such as
+        rescheduling or updating the date and time, please contact us. We will
+        assist you in making any necessary adjustments to your pickup order.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        this.parentElement.classList.toggle("active");
+
+        var pannel = this.nextElementSibling;
+
+        if (pannel.style.display === "block") {
+          pannel.style.display = "none";
+        } else {
+          pannel.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+  {% endblock %}
+</div>

@@ -1,0 +1,62 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<center><div class="createlistingbackground">
+<h2 style="color: white;">Purchase Item</h2>
+{% for message in messages %}
+<div class="alert alert-danger">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+       {{ message }}
+</div>
+{% endfor %}
+<form action="{% url 'purchase' listing.id %}" method="POST">
+     {% csrf_token %}
+     <div class="form-group">
+        <label for="quantity" style="color: white;">Quantity Needed (in lbs)</label>
+        <input type="number" name="quantity" class="form-control" id="quantity" placeholder="Quantity Ordered" step="0.01" max="{{ available_quantity }}" required>
+        {% if available_quantity %}
+            <small style="color: white;" class="form-text text-muted">Available Quantity: {{ available_quantity }} lbs</small>
+        {% endif %}
+        {% if form.errors.quantity %}
+            <small class="text-danger">{{ form.errors.quantity }}</small>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="pickup_date" style="color: white;">Pickup Date</label>
+        <input type="date" name="pickup_date" class="form-control" id="pickup_date" required>
+    </div>
+     <div class="form-group">
+         <label for="pickup_time" style="color: white;">Pickup Time</label>
+         <input type="time" name="pickup_time" class="form-control" id="pickup_time" required>
+     </div>
+     <div class="form-group">
+         <label for="pickup_person" style="color: white;">Name of Pickup Person</label>
+         <input type="text" name="pickup_person" class="form-control" id="pickup_person" placeholder="Contact Name" required>
+     </div>
+     <div class="form-group">
+         <label for="email" style="color: white;">Contact Email</label>
+         <input type="email" name="email" class="form-control" id="email" placeholder="Contact Email" required>
+     </div>
+     <div class="form-group">
+        <label for="phone_number" style="color: white;">Contact Phone</label>
+        <input type="tel" name="phone_number" class="form-control" id="phone_number" placeholder="Contact Phone" required>
+        {% if form.errors.phone_number %} 
+            <small class="text-danger">{{ form.errors.phone_number }}</small>
+        {% endif %}
+    </div>    
+     <div class="form-group">
+         <input type="checkbox" name="agree_terms" id="agree_terms" required>
+         <label for="agree_terms" style="color: white;">I agree to the <a  href="{% url 'terms' %}" data-toggle="modal" style="color: white;">Terms and Conditions</a></label>
+     </div>
+     {% if is_owner %}
+     <div class="alert alert-danger" role="alert">
+         You cannot purchase your own product.
+     </div>
+     {% endif %}
+     <button type="submit" id="viewdetails" class="btn btn-success">Place Order</button>
+ </form>
+</div></center>
+{% endblock %}
+
+

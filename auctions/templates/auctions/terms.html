@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terms and Condition Section Tabs In HTML CSS and Javascript</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+:root {
+  --primary-clr: #365B6D;
+  --white: #C3E9F6;
+  --text-clr: #464646;
+  --tabs-list-bg-clr: #90ADC6;
+  --btn-hvr: #F2F1EC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+body{
+  background: var(--primary-clr);
+  font-size: 12px;
+  color: var(--text-clr);
+}
+
+.flex_align_justify{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper{
+  min-height: 100vh;
+  padding: 0 20px;
+}
+
+.tc_wrap{
+  width: 700px;
+  max-width: 100%;
+  height: 450px;
+  background: var(--white);
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tc_wrap .tabs_list{
+  width: 200px;
+  background: var(--tabs-list-bg-clr);
+  height: 100%;
+}
+
+.tc_wrap .tabs_content{
+  width: calc(100% - 200px);
+  padding: 0 10px 0 20px;
+  height: 100%;
+}
+
+.tc_wrap .tabs_content .tab_head,
+.tc_wrap .tabs_content .tab_foot{
+  color: var(--primary-clr);
+  padding: 25px 0;
+  height: 70px;
+}
+
+.tc_wrap .tabs_content .tab_head{
+  text-align: center;
+}
+
+.tc_wrap .tabs_content .tab_body{
+  height: calc(100% - 140px);
+  overflow: auto;
+}
+
+.tc_wrap .tabs_list ul{
+  padding: 70px 20px;
+  text-align: right;
+}
+
+.tc_wrap .tabs_list ul li{
+  padding: 10px 0;
+  position: relative;
+  margin-bottom: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.5s ease;
+}
+
+.tc_wrap .tabs_list ul li:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 2px;
+  height: 100%;
+  background: var(--primary-clr);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.tc_wrap .tabs_list ul li.active,
+.tc_wrap .tabs_list ul li:hover{
+  color: var(--primary-clr);
+}
+
+.tc_wrap .tabs_list ul li.active:before{
+  opacity: 1;
+}
+
+.tc_wrap .tabs_content .tab_body .tab_item h3{
+  padding-top: 10px;
+  margin-bottom: 10px;
+  color: var(--primary-clr);
+}
+
+.tc_wrap .tabs_content .tab_body .tab_item p{
+  margin-bottom: 20px;
+}
+
+.tc_wrap .tabs_content .tab_body .tab_item.active{
+  display: block !important;
+}
+
+.tc_wrap .tabs_content .tab_foot button{
+    width: 125px;
+    padding: 5px 10px; 
+    background: transparent;
+    border: 1px solid;
+    border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.tc_wrap .tabs_content .tab_foot button.decline{
+  margin-right: 15px;
+  border-color: var(--tabs-list-bg-clr);
+  color: var(--tabs-list-bg-clr);
+}
+
+.tc_wrap .tabs_content .tab_foot button.agree{
+   background: var(--primary-clr);
+  border-color: var(--primary-clr);
+  color: var(--white);
+}
+
+.tc_wrap .tabs_content .tab_foot button.decline:hover{
+  background: var(--tabs-list-bg-clr);
+  color: var(--white);
+}
+
+.tc_wrap .tabs_content .tab_foot button.agree:hover{
+  background: var(--btn-hvr);
+  border-color: var(--btn-hvr);
+}
+  </style>
+</head>
+<body>
+
+<div class="wrapper flex_align_justify">
+   <div class="tc_wrap">
+       <div class="tabs_list">
+         <ul>
+           <li data-tc="tab_item_1" class="active">Terms of use</li>
+           <li data-tc="tab_item_2">Order Process</li>
+           <li data-tc="tab_item_3">Payment</li>
+           <li data-tc="tab_item_4">Pickup</li>
+           <li data-tc="tab_item_5">Cancellations and Refunds</li>
+           <li data-tc="tab_item_6">Product Availability</li>
+           <li data-tc="tab_item_7">Privacy</li>
+           <li data-tc="tab_item_8">Liability</li>
+         </ul>
+       </div>
+       <div class="tabs_content">
+          <div class="tab_head">
+            <h2>Terms & Conditions</h2>
+          </div>
+          <div class="tab_body">
+            <div class="tab_item tab_item_1">
+                <h3>Terms of use</h3>
+                <p>Welcome to Farmlink! By using our website and purchasing products from our farm shop, you agree to abide by the following terms and conditions. Please read these terms carefully before placing an order.</p>
+            </div>
+            <div class="tab_item tab_item_2" style="display: none;">
+                <h3>Order process</h3>
+                <p>When you place an order with us, you confirm that all information provided is accurate and complete.</p>
+                <p>Orders are subject to product availability, and we reserve the right to cancel or modify orders if necessary.</p>
+                <p>After placing an order, you will receive an email confirmation with order details and pickup instructions.</p>
+            </div>
+            <div class="tab_item tab_item_3"  style="display: none;">
+                <h3>Payment</h3>
+                <p>Payment must be made in full at the pickup location.</p>
+                <p>Prices are listed in dollars and are inclusive of all applicable taxes.</p>
+            </div>
+            <div class="tab_item tab_item_4"  style="display: none;">
+                <h3>Pickup</h3>
+                <p>Please arrive at the farm at the scheduled pickup time and date you selected during checkout.</p>
+                <p>If you cannot pick up your order as scheduled, please contact us in advance to make alternative arrangements.</p>
+                <p>It is your responsibility to inspect and confirm the order's accuracy at the time of pickup.</p>
+            </div>
+            <div class="tab_item tab_item_5"  style="display: none;">
+                <h3>Cancellations and Refunds</h3>
+                <p>Orders can be canceled up to 24 hours before the scheduled pickup time for a full refund.</p>
+                <p>Refunds may be subject to a processing fee.</p>
+                <p>We reserve the right to cancel an order and issue a refund if we are unable to fulfill it for any reason.</p>
+            </div>
+            <div class="tab_item tab_item_6"  style="display: none;">
+              <h3>Product Availability</h3>
+              <p>Our farm products are subject to seasonal availability. We will do our best to inform you of any shortages or substitutions.</p>
+              <p>We may limit the quantity of a product that you can purchase to ensure fair distribution.</p>
+          </div>
+          <div class="tab_item tab_item_7"  style="display: none;">
+            <h3>Privacy</h3>
+            <p>We respect your privacy and will handle your personal information in accordance with our Privacy Policy.</p>
+        </div>
+        <div class="tab_item tab_item_8"  style="display: none;">
+          <h3>Liability</h3>
+          <p>Farmlink is not responsible for any damages, injuries, or loss that may occur during the pickup of products.</p>
+          <p>We strive to provide accurate product information, but we are not liable for any errors or omissions on our website.</p>
+      </div>
+          </div>
+       </div>
+   </div>
+</div>
+
+<script>
+  var tab_lists = document.querySelectorAll(".tabs_list ul li");
+var tab_items = document.querySelectorAll(".tab_item"); 
+
+tab_lists.forEach(function(list){
+  list.addEventListener("click", function(){
+    var tab_data = list.getAttribute("data-tc");
+    
+    tab_lists.forEach(function(list){
+      list.classList.remove("active");
+    });
+    list.classList.add("active");
+    
+    tab_items.forEach(function(item){
+      var tab_class = item.getAttribute("class").split(" ");
+      if(tab_class.includes(tab_data)){
+        item.style.display = "block";
+      }
+      else{
+        item.style.display = "none";
+      }
+      
+    })
+    
+  })
+})
+</script>
+
+</body>
+</html>

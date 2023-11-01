@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Farmlink{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        {% load static %}
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script src="https://unpkg.com/typeit@8.5.5/dist/index.umd.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://kit.fontawesome.com/ba7993d3b9.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/6.4.2/animate.min.css" />
+    </head>
+    
+    <body>
+        <header>
+        <bold><a href="{% url 'index' %}"><h1 class="farmlink">Farmlink.</h1></a></bold>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onClick="document.getElementById('middle').scrollIntoView();" style="scroll-behavior: smooth">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">Contact</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create' %}">Create Listing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'owner_orders' %}">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link1" href="{% url 'logout' %}">Logout</a>
+                </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'reviews' %}">FAQ's</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link1" href="{% url 'login' %}">Log In</a>
+                </li>
+            {% endif %}
+        </ul>
+        
+    </header>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<center><div class="createlistingbackground">
+  <h2 style="color: white;">Edit Product</h2>
+  <form method="post">
+    <span style="color: white;">{% csrf_token %}<br>
+    {{ form.as_p }}</span>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    
+  </form>
+</div></center>
+{% endblock %}

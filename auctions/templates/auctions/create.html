@@ -1,0 +1,49 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<center><div class="createlistingbackground">
+   <h2 style="color: white;">Create a Listing</h2>
+   {% for message in messages %}
+   <div class="alert alert-danger">
+       <a class="close" href="#" data-dismiss="alert">×</a>
+          {{ message }}
+   </div>
+   {% endfor %}
+   <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="title" style="color: white;">Title</label>
+          <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="imageurl" style="color: white;">Image URL</label>
+            <input type="text" name="imageurl" class="form-control" id="imageurl" placeholder="Image URL">
+        </div>
+        <div class="form-group">
+            <label for="price" style="color: white;">Price</label>
+            <input type="number" name="price" class="form-control" id="price" step="0.01" placeholder="Price">
+        </div>        
+        <div class="form-group">
+            <label for="quantity_available_lbs" style="color: white;">Quantity Available (in lbs)</label>
+            <input type="number" name="quantity_available_lbs" class="form-control" id="quantity_available_lbs" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="address" style="color: white;">Farm Address</label>
+            <input type="text" name="address" class="form-control" id="address" placeholder="Address">
+        </div>
+        <div class="form-group">
+            <label for="available_until_date" style="color: white;">Available Until Date</label>
+            <input type="date" name="available_until_date" class="form-control" id="available_until_date">
+        </div>
+        <div class="form-group">
+            <label for="category" style="color: white;">Choose a category:</label>
+            <select name="category" id="category">
+                {% for cat in categories %}
+                <option value="{{cat}}">{{cat}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success" id="viewdetails">Create New Listing</button>
+    </form>
+</div></center>
+{% endblock %}
