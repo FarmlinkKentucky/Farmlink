@@ -2,7 +2,7 @@
 
 ## About Farmlink
 
-Farmlink is a web application designed to connect local farmers and consumers in Kentucky's 3rd District. It aims to promote sustainability, support the local economy, and provide an easy way for residents to access fresh, locally-grown produce.
+Farmlink is a web application to help connect local farmers and consumers in Kentucky's 3rd District. Our app's goal is to promote sustainability, support the local economy, and provide an easy way for people to access fresh, locally-grown produce.
 
 ## Founders
 
